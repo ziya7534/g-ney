@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senfoni VNS-80C Parke</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2e3a59;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .carousel {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-details h2 {
+            margin-top: 0;
+            color: #2e3a59;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #e67e22;
+            margin: 15px 0;
+        }
+
+        .buy-button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .buy-button:hover {
+            background-color: #cf6c18;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2e3a59;
+            color: white;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .product {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Senfoni VNS-80C Parke</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <div class="carousel">
+            <img src="https://via.placeholder.com/600x400.png?text=Parke+1" class="active" alt="Parke 1" loading="lazy">
+            <img src="https://via.placeholder.com/600x400.png?text=Parke+2" alt="Parke 2" loading="lazy">
+            <img src="https://via.placeholder.com/600x400.png?text=Parke+3" alt="Parke 3" loading="lazy">
+            <div class="carousel-buttons">
+                <button id="prev" aria-label="Önceki resim">&#10094;</button>
+                <button id="next" aria-label="Sonraki resim">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h2>Ürün Özellikleri</h2>
+            <ul class="features">
+                <li>Uzunluk: 1200 mm</li>
+                <li>Genişlik: 80 mm</li>
+                <li>Kalınlık: 10 mm</li>
+                <li>Malzeme: Laminat Parke</li>
+                <li>Renk: Meşe</li>
+                <li>Kullanım Alanı: Ev ve Ofis</li>
+            </ul>
+            <p class="price">Fiyat: 450 TL / m² (KDV Dahil)</p>
+            <button class="buy-button" onclick="alert('Sepete eklendi!')">Sepete Ekle</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Güney Yapı. Tüm hakları saklıdır.
+</footer>
+
+<script>
+    const images = document.querySelectorAll('.carousel img');
+    let currentIndex = 0;
+
+    const showImage = (index) => {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    });
+
+    // Klavye ile gezinme (istenirse)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            document.getElementById('prev').click();
+        } else if (e.key === 'ArrowRight') {
+            document.getElementById('next').click();
+        }
+    });
+</script>
+
+</body>
+</html>
