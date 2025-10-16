@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Senfoni VNS-80C — Laminat Parke | Güney Yapı</title>
+  <meta name="description" content="Senfoni VNS-80C meşe laminat parke — ev ve ofisler için dayanaklı, estetik ve ekonomik çözümler.">
+  <meta property="og:title" content="Senfoni VNS-80C — Laminat Parke">
+  <meta property="og:description" content="Meşe renkli laminat parke. Uzunluk 1200 mm, genişlik 80 mm, kalınlık 10 mm.">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Senfoni+VNS-80C">
+  <meta name="theme-color" content="#2e3a59">
+
+  <style>
+    :root{
+      --bg:#f6f7f9;
+      --card:#ffffff;
+      --accent:#e67e22;
+      --dark:#2e3a59;
+      --muted:#6b7280;
+      --radius:12px;
+      --container:1100px;
+      --gap:20px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#f8fafc, var(--bg));
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    header{
+      background:var(--dark);
+      color:#fff;
+      padding:18px 12px;
+    }
+    .wrap{
+      max-width:var(--container);
+      margin:18px auto;
+      padding:0 16px;
+    }
+    .site-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    nav a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:16px;font-size:14px}
+    main{padding:18px 0}
+
+    .product-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    /* card / gallery */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 6px 22px rgba(16,24,40,0.06);
+      overflow:hidden;
+    }
+    .gallery{
+      display:grid;
+      grid-template-rows: auto 80px;
+      gap:12px;
+      padding:18px;
+    }
+    .hero{
+      position:relative;
+      border-radius:8px;
+      overflow:hidden;
+      background:#eee;
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .hero .controls{
+      position:absolute;
+      inset:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      pointer-events:none;
+    }
+    .controls button{
+      pointer-events:auto;
+      border:0;
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      width:40px;height:40px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:20px;
+      display:grid;place-items:center;
+    }
+    .thumbs{
+      display:flex;
+      gap:8px;
+      justify-content:center;
+    }
+    .thumbs button{
+      border-radius:8px;
+      overflow:hidden;
+      border:2px solid transparent;
+      padding:0;
+      background:#fff;
+      cursor:pointer;
+      width:120px;
+      height:64px;
+    }
+    .thumbs button img{width:100%;height:100%;object-fit:cover;display:block}
+    .thumbs button[aria-pressed="true"]{outline:3px solid rgba(230,126,34,0.18); border-color:var(--accent)}
+
+    /* details */
+    .details{
+      padding:22px;
+    }
+    .title{
+      margin:0 0 8px 0;
+      font-size:22px;
+      color:var(--dark);
+    }
+    .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
+    .features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0 18px;padding:0;list-style:none}
+    .features li{font-size:14px;color:#374151}
+    .price{font-size:24px;color:var(--accent);margin:12px 0}
+
+    .buy-panel{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:12px;
+    }
+    .qty{
+      display:flex;
+      align-items:center;
+      border:1px solid #e6e8eb;
+      border-radius:8px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .qty button{background:transparent;border:0;padding:8px 10px;cursor:pointer}
+    .qty input{width:56px;border:0;text-align:center;font-size:16px;padding:8px}
+    .btn{
+      background:var(--accent);
+      color:#fff;border:0;padding:12px 18px;border-radius:8px;cursor:pointer;font-weight:600;
+      box-shadow:0 6px 16px rgba(230,126,34,0.12);
+    }
+    .btn[aria-disabled="true"]{opacity:0.6;cursor:not-allowed}
+
+    footer{
+      margin-top:28px;
+      padding:18px 0;
+      color:#fff;
+      text-align:center;
+      background:var(--dark);
+    }
+
+    /* responsive */
+    @media(max-width:980px){
+      .product-grid{grid-template-columns:1fr}
+      .thumbs button{width:100px}
+      .hero{min-height:260px}
+    }
+
+    /* focus */
+    :focus{outline:3px solid rgba(34,197,94,0.1);outline-offset:2px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Senfoni VNS-80C Parke",
+    "image": [
+      "https://via.placeholder.com/1200x800.png?text=Parke+1"
+    ],
+    "description": "Meşe renkli laminat parke. Uzunluk 1200 mm, genişlik 80 mm, kalınlık 10 mm.",
+    "sku": "VNS-80C",
+    "brand": {"@type":"Brand","name":"Senfoni"},
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "TRY",
+      "price": "450.00",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap site-title" role="banner">
+      <div class="brand">
+        <img src="https://via.placeholder.com/48x48.png?text=G" alt="Güney Yapı logo" width="48" height="48" style="border-radius:8px">
+        <h1>Güney Yapı</h1>
+      </div>
+      <nav aria-label="Ana menü">
+        <a href="#">Ürünler</a>
+        <a href="#">Hakkımızda</a>
+        <a href="#">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <section class="product-grid">
+      <article class="card">
+        <div class="gallery" aria-label="Ürün görselleri">
+          <div class="hero" id="hero" aria-live="polite">
+            <img src="https://via.placeholder.com/1200x800.png?text=Parke+1" alt="Senfoni VNS-80C Parke - Görsel 1" loading="lazy" id="heroImg">
+            <div class="controls" aria-hidden="false">
+              <button id="prev" title="Önceki" aria-label="Önceki görsel">&#10094;</button>
+              <button id="next" title="Sonraki" aria-label="Sonraki görsel">&#10095;</button>
+            </div>
+          </div>
+
+          <div class="thumbs" role="tablist" aria-label="Küçük görseller">
+            <button data-src="https://via.placeholder.com/1200x800.png?text=Parke+1" aria-pressed="true" role="tab" aria-label="Görsel 1"><img src="https://via.placeholder.com/240x140.png?text=Parke+1" alt=""></button>
+            <button data-src="https://via.placeholder.com/1200x800.png?text=Parke+2" aria-pressed="false" role="tab" aria-label="Görsel 2"><img src="https://via.placeholder.com/240x140.png?text=Parke+2" alt=""></button>
+            <button data-src="https://via.placeholder.com/1200x800.png?text=Parke+3" aria-pressed="false" role="tab" aria-label="Görsel 3"><img src="https://via.placeholder.com/240x140.png?text=Parke+3" alt=""></button>
+          </div>
+        </div>
+      </article>
+
+      <aside class="card details" aria-labelledby="productTitle">
+        <h2 id="productTitle" class="title">Senfoni VNS-80C Parke — Meşe</h2>
+        <div class="meta">Uzunluk: 1200 mm · Genişlik: 80 mm · Kalınlık: 10 mm</div>
+
+        <ul class="features" aria-hidden="false">
+          <li>Malzeme: Laminat Parke</li>
+          <li>Kullanım Alanı: Ev & Ofis</li>
+          <li>Renk: Meşe</li>
+          <li>Dayanıklılık: AC4</li>
+        </ul>
+
+        <div class="price">450 TL / m² (KDV Dahil)</div>
+
+        <div class="buy-panel" role="region" aria-label="Satın alma">
+          <div class="qty" aria-hidden="false">
+            <button id="dec" aria-label="Miktarı azalt">−</button>
+            <input id="qty" type="number" min="1" value="1" aria-label="Miktar">
+            <button id="inc" aria-label="Miktarı arttır">+</button>
+          </div>
+
+          <button class="btn" id="addCart">Sepete Ekle</button>
+        </div>
+
+        <p style="margin-top:14px;color:var(--muted);font-size:13px">
+          Teslimat ve montaj seçenekleri için bizimle iletişime geçin.
+        </p>
+      </aside>
+    </section>
+
+    <section style="margin-top:18px">
+      <div class="card" style="padding:18px">
+        <h3 style="margin-top:0">Açıklama</h3>
+        <p class="muted" style="color:var(--muted);margin:0">
+          Senfoni VNS-80C, estetik meşe görünümü ve uzun ömürlü laminat yapısıyla iç mekanlar için ideal bir tercihtir.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      &copy; 2025 Güney Yapı — Tüm hakları saklıdır.
+    </div>
+  </footer>
+
+  <!-- Basit JS: gallery, controls, cart -->
+  <script>
+    (function(){
+      const heroImg = document.getElementById('heroImg');
+      const thumbs = document.querySelectorAll('.thumbs button');
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      let current = 0;
+      const srcs = Array.from(thumbs).map(t=>t.dataset.src);
+
+      function show(i){
+        current = (i + srcs.length) % srcs.length;
+        heroImg.src = srcs[current];
+        // update pressed state
+        thumbs.forEach((b, idx)=>{
+          b.setAttribute('aria-pressed', idx===current ? 'true' : 'false');
+        });
+      }
+
+      thumbs.forEach((b,idx)=>{
+        b.addEventListener('click',()=> show(idx));
+        b.addEventListener('keydown',(e)=>{
+          if(e.key==='Enter' || e.key===' ') { e.preventDefault(); show(idx); }
+        });
+      });
+
+      prev.addEventListener('click', ()=> show(current-1));
+      next.addEventListener('click', ()=> show(current+1));
+
+      // keyboard arrows
+      document.addEventListener('keydown', (e)=>{
+        if(e.key==='ArrowLeft') prev.click();
+        if(e.key==='ArrowRight') next.click();
+      });
+
+      // auto rotate with pause on hover/focus
+      let rot;
+      function startAuto(){ rot = setInterval(()=> show(current+1), 4500); }
+      function stopAuto(){ clearInterval(rot); }
+      document.querySelector('.hero').addEventListener('mouseenter', stopAuto);
+      document.querySelector('.hero').addEventListener('mouseleave', startAuto);
+      startAuto();
+
+      // quantity + cart
+      const dec = document.getElementById('dec');
+      const inc = document.getElementById('inc');
+      const qty = document.getElementById('qty');
+      const addCart = document.getElementById('addCart');
+
+      dec.addEventListener('click', ()=> { qty.value = Math.max(1, Number(qty.value)-1); });
+      inc.addEventListener('click', ()=> { qty.value = Number(qty.value)+1; });
+
+      addCart.addEventListener('click', ()=>{
+        const item = {
+          sku:'VNS-80C',
+          title: document.getElementById('productTitle').textContent.trim(),
+          qty: Number(qty.value),
+          price: 450
+        };
+        const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+        cart.push(item);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // küçük bildirim
+        const note = document.createElement('div');
+        note.textContent = 'Ürün sepete eklendi.';
+        Object.assign(note.style,{position:'fixed',right:'18px',bottom:'18px',background:'#111',color:'#fff',padding:'10px 14px',borderRadius:'8px',zIndex:9999});
+        document.body.appendChild(note);
+        setTimeout(()=> note.remove(),1800);
+      });
+
+    })();
+  </script>
+</body>
+</html>
